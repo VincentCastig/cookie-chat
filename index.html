@@ -12,9 +12,12 @@
         <input class="form-control text-box" type="text" ng-model="message" placeholder="Message">
       </form>
       <div class="messages-container">
-        <p ng-repeat="message in messages ">
-          {{message.message}} </p>
+        <p ng-repeat="message in messages | orderBy: '-createdAt'">
+          {{message.message}}
+          {{message.createdAt | date: 'EEE M yyyy'}}
+          </p>
       </div>
+
     </div>
 
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
